@@ -14,10 +14,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import br.com.testealelo.aleloapi.repository.VehicleRepository;
 
-@Configuration
-@EnableJpaRepositories(basePackages = "br.com.testealelo.aleloapi.repository")
-@PropertySource("persistence-h2.properties")
-@EnableTransactionManagement
+//@Configuration
+//@EnableJpaRepositories(basePackages = "br.com.testealelo.aleloapi.repository")
+//@EnableTransactionManagement
 public class H2JpaConfig {
 	
 	@Autowired
