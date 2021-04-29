@@ -35,7 +35,7 @@ public class SpringFoxConfig implements WebMvcConfigurer{
 		
 		return new ApiInfo(
 				"Alelo API Specification",
-				"Api - Teste Desenvolvedor Java",
+				"Teste Desenvolvedor Java - Alelo",
 				"V1",
 				"",
 				new Contact("Enzo Couto","","enzocouto@gmail.com"),
