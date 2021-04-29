@@ -22,6 +22,10 @@
 		<!-- Hibernate Core -->
 		<hibernate-core.version>5.2.4.Final</hibernate-core.version>
 		
+		<!-- Spring Fox  -->
+		<spring-fox.version>3.0.0</spring-fox.version>
+		
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -62,8 +66,26 @@
             <scope>compile</scope>
         </dependency>
         
-        
-        
+        <!-- Spring Fox -->
+  		<dependency>
+ 			<groupId>io.springfox</groupId>
+ 			<artifactId>springfox-boot-starter</artifactId>
+ 			<version>${spring-fox.version}</version>
+		</dependency>
+		
+		 <!-- Spring Fox swagger-ui-->
+  		<dependency>
+ 			<groupId>io.springfox</groupId>
+ 			<artifactId>springfox-swagger-ui</artifactId>
+ 			<version>${spring-fox.version}</version>
+		</dependency>
+		
+		<!-- Spring Fox WEBMVC-->
+  		<dependency>
+ 			<groupId>io.springfox</groupId>
+ 			<artifactId>springfox-spring-webmvc</artifactId>
+ 			<version>${spring-fox.version}</version>
+		</dependency>
         
 	</dependencies>
 
