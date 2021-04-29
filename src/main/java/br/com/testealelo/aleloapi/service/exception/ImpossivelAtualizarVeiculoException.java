@@ -1,13 +1,13 @@
 package br.com.testealelo.aleloapi.service.exception;
 
-public class ImpossivelExcluirEntidadeException extends RuntimeException {
+public class ImpossivelAtualizarVeiculoException extends RuntimeException {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public ImpossivelExcluirEntidadeException(String msg) {
+	public ImpossivelAtualizarVeiculoException(String msg) {
 		super(msg);
 	}
 

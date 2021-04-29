@@ -15,6 +15,13 @@
 	<description>Api do Test de backEnd da vaga na Alelo</description>
 	<properties>
 		<java.version>11</java.version>
+		
+		<!-- Bean Validation / Hibernate Validator -->
+		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
+		
+		<!-- Hibernate Core -->
+		<hibernate-core.version>5.2.4.Final</hibernate-core.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,12 +46,25 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+		
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 		
+		<!-- Bean Validation / Hibernate Validator -->
+  		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        
+        
+        
 	</dependencies>
 
 	<build>
