@@ -41,18 +41,10 @@ public class VehicleController {
 	
 	
 	@GetMapping(params = "filter")
-	public Vehicle listVehiclesByPlate(@RequestParam("filter") String plate) {
-		return vehicleservice.buscarVeiculoPorPlaca(plate);
+	public Vehicle listVehiclesByPlate(@RequestParam("filter") String plate, @RequestParam("type") String type) {
+		return vehicleservice.buscarVeiculoPorTipoFiltro(plate, type);
 	}
-	
-	/* Estou utilizando o Verbo PATCH para não ocorrer erro de mapeamento ambiguo
-	 * já que o contrato tem o mesmo nome de parametro 'filter' tanto para a consulta por placa e consulta por status
-	 * Para respeitar o contrato minha decisão foi utilizar essa foi a solução, mas penso que os nomes dos parametros 
-	 * deveriam ser especifico para cada um dos recursos*/
-	@PatchMapping(params = "filter")
-	public  List<Vehicle> listVehiclesByStatus(@RequestParam("filter") Boolean status) {		
-		return vehicleservice.buscarVeiculoPorStatus(status);
-	}
+
 	
 	@GetMapping("/{id}")
 	public Vehicle findVehicleById(@PathVariable Long id) {

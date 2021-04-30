@@ -14,17 +14,13 @@
 	<name>alelo-api</name>
 	<description>Api do Test de backEnd da vaga na Alelo</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		
 		<!-- Bean Validation / Hibernate Validator -->
 		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 		
 		<!-- Hibernate Core -->
 		<hibernate-core.version>5.2.4.Final</hibernate-core.version>
-		
-		<!-- Spring Fox  -->
-		<spring-fox.version>3.0.0</spring-fox.version>
-		
 		
 	</properties>
 	<dependencies>
@@ -65,28 +61,26 @@
             <version>${hibernate-validator.version}</version>
             <scope>compile</scope>
         </dependency>
-        
-        <!-- Spring Fox -->
-  		<dependency>
- 			<groupId>io.springfox</groupId>
- 			<artifactId>springfox-boot-starter</artifactId>
- 			<version>${spring-fox.version}</version>
+
+		<!--Spring Doc-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.2</version>
 		</dependency>
-		
-		 <!-- Spring Fox swagger-ui-->
-  		<dependency>
- 			<groupId>io.springfox</groupId>
- 			<artifactId>springfox-swagger-ui</artifactId>
- 			<version>${spring-fox.version}</version>
+
+		<!--Spring UI-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.2</version>
 		</dependency>
-		
-		<!-- Spring Fox WEBMVC-->
-  		<dependency>
- 			<groupId>io.springfox</groupId>
- 			<artifactId>springfox-spring-webmvc</artifactId>
- 			<version>${spring-fox.version}</version>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
-        
 	</dependencies>
 
 	<build>
@@ -94,6 +88,41 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- kotlin -->
+			<plugin>
+				<artifactId>kotlin-maven-plugin</artifactId>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<version>${kotlin.version}</version>
+				<configuration>
+					<compilerPlugins>
+						<plugin>spring</plugin>
+					</compilerPlugins>
+				</configuration>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test-compile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>test-compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.jetbrains.kotlin</groupId>
+						<artifactId>kotlin-maven-allopen</artifactId>
+						<version>${kotlin.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

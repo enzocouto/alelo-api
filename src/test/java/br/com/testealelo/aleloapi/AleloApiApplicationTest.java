@@ -14,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import br.com.testealelo.aleloapi.entity.Vehicle;
 import br.com.testealelo.aleloapi.repository.VehicleRepository;
@@ -57,16 +56,13 @@ public class AleloApiApplicationTest {
 			    	assertEquals("Nao é possível incluir veículo.Placa já existente.", exception.getMessage());   
 			    }
 				
-				
 				@Test
 			    public void salvarVehicleSemModeloPreenchidoComErro() {				
 			    	Vehicle vehicleSemModelo =  vehicle;
 			    	vehicleSemModelo.setModel("");
-			    	assertThrows(ConstraintViolationException.class, () -> vehicleService.salvarVehicle(vehicleSemModelo));
-			    	 
+			    	assertThrows(ConstraintViolationException.class, () -> vehicleService.salvarVehicle(vehicleSemModelo));			    	 
 			    }
-				
-				
+						
 				@Test
 			    public void atualizarVeiculoPlacaDiferente() {	
 					vehicleService.salvarVehicle(vehicle);
@@ -74,8 +70,7 @@ public class AleloApiApplicationTest {
 					vehiclePlacaDiferenteAtualizado.setPlate("AAA22334");
 			    	assertThrows(AtualizacaoPlacaDiferenteException.class, () -> vehicleService.editVehicle(vehiclePlacaDiferenteAtualizado));
 			    	 
-			    }
-				
+			    }	
 				 
 		     }
   

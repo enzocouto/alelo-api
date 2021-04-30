@@ -105,4 +105,11 @@ public class VehicleService {
 		//Como 	
 		return vehicleRepository.findAll(pageable);
 	}
+
+    public Vehicle buscarVeiculoPorTipoFiltro(String filter, String type) {
+		if("plate".equals(type)){
+			return buscarVeiculoPorPlaca(filter);
+		}
+		return null;
+    }
 }
