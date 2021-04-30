@@ -39,13 +39,20 @@ public class VehicleController {
 		
 	}
 	
+	/*
+	 * Alerado nome dos parametros.
+	 * Não entendi o motivo do filtro por placa e filtro por status ter o mesmo nome "filter"
+	 */
+	@GetMapping(params = "plate")
+	public Vehicle listVehiclesByPlate(@RequestParam("plate") String plate) {
+		return vehicleservice.buscarVeiculoPorPlaca(plate);
+	}
 	
-	@GetMapping(params = "filter")
-	public Vehicle listVehiclesByPlate(@RequestParam("filter") String plate, @RequestParam("type") String type) {
-		return vehicleservice.buscarVeiculoPorTipoFiltro(plate, type);
+	@GetMapping(params = "status")
+	public List<Vehicle> listVehiclesByStatus(@RequestParam("status") Boolean status) {
+		return vehicleservice.buscarVeiculoPorStatus(status);
 	}
 
-	
 	@GetMapping("/{id}")
 	public Vehicle findVehicleById(@PathVariable Long id) {
 		return vehicleservice.findById(id);
@@ -57,7 +64,7 @@ public class VehicleController {
 		return ResponseEntity.ok().body("Veículo salvo com sucesso!");
 	}
 	
-	@PutMapping
+	@PatchMapping
 	public @ResponseBody ResponseEntity<?> upDateVehicle(@Valid @RequestBody Vehicle vehicle) {
 		vehicleservice.editVehicle(vehicle);
 		return ResponseEntity.ok().body("Veículo atualizado com sucesso!");

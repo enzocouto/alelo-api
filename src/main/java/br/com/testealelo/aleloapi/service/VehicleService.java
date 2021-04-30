@@ -102,14 +102,7 @@ public class VehicleService {
 			
 	}
 	public Page<Vehicle> filtrar(Pageable pageable) {
-		//Como 	
 		return vehicleRepository.findAll(pageable);
 	}
 
-    public Vehicle buscarVeiculoPorTipoFiltro(String filter, String type) {
-		if("plate".equals(type)){
-			return buscarVeiculoPorPlaca(filter);
-		}
-		return null;
-    }
 }
